@@ -56,7 +56,7 @@ function carpma(a, b) {
   return a * b;
 }
 
-console.log("carpma", carpma(7, 4));
+ console.log("carpma", carpma(7, 4));
 
 
 /* Görev 2 : Köpeğin Yaşı */
@@ -129,7 +129,19 @@ console.log(oyun(oyuncuTercihi, bilgisayarTercihi));
 Şimdi kendi seçtiğin bir seçime karşı bilgisayarın rastgele oluşturduğu seçimi yukarıda yazdığın oyun fonsiyonu ile oynayın ve sonucu console'a yazdırın.
 Örn: console.log(oyun("Makas",bilgisayarinSecimi()))
 */
-
+function bilgisayarinSecimi() {
+  let secim;
+  secim = Math.random() * 3;
+  secim = Math.floor(secim);   // 0, 1, 2
+  if ( secim == 0) {
+    return "Taş"
+  } else if (secim == 1) {
+    return "Kağıt";
+  } else {
+    return "Makas";
+  } 
+}
+console.log(oyun("Makas", bilgisayarinSecimi()));
 
 /* Görev 4 : Metrik Dönüştürücü */
 
@@ -170,6 +182,7 @@ function feetDonusturucu(santimetre) {
 
 var santimetre = 100;
 var feet = feetDonusturucu(santimetre);
+
 console.log(feet);
 
 
@@ -249,9 +262,19 @@ Aşağıdakileri sesliHarfSayaci fonskiyonunda yap.
 İPUCU - .includes() methoduna bakabilirsin. (https://www.w3schools.com/jsref/jsref_includes.asp)
 */
 
-function sesliHarfSayaci(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function sesliHarfSayaci(Smeyye) {
+  const sesliHarfler = "a,e,i,ı,o,ö,u,ü,A,E,I,İ,O,Ö,U,Ü,";
+  let sesliHarfSayisi = 0;
+  for (let i = 0; i < Smeyye.length; i++ ) {
+    if(sesliHarfler.includes(Smeyye[i])) {
+      sesliHarfSayisi++;
+    }
+  }
+  return sesliHarfSayisi;
 }
+const test = "Sümeyye DANISMAZ";
+const sonuc = sesliHarfSayaci(test);
+console.log(`${test} içinddeki sesli harf sayısı: ${sonuc}`);
 
 /* Lütfen bu satırın alt tarafını değiştirmeyin */
 function sa() {
